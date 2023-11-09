@@ -2,13 +2,11 @@ import { createConnection } from 'mysql2';
 import dotenv from 'dotenv';
 dotenv.config();
 
-const dbPort = parseInt(process.env.PORT_DB, 10);
-console.log(process.env.PASSWORD_DB);
 const db = createConnection({
-    host:process.env.HOST_DB,
-    user:process.env.USER_DB,
-    port:dbPort|| 49241,
-    password:process.env.PASSWORD_DB,
+    host: process.env.HOST_DB,
+    user: process.env.USER_DB,
+    port: parseInt(process.env.PORT_DB, 10),
+    password: process.env.PASSWORD_DB,
     database: process.env.NAME_DB,
     waitForConnections: true,
     connectionLimit: 20,
