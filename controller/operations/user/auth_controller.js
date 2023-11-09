@@ -1,4 +1,3 @@
-// login.js
 import jwt from 'jsonwebtoken';
 import { loginQuery, updateTokenQuery } from '../../querys/user_query.js';
 
@@ -8,7 +7,6 @@ export const login = async (req, res) => {
 
   try {
     const results = await loginQuery(Username, password);
-
     if (results.length === 1) {
       const userCurrent = results[0];
       const token = jwt.sign({ userCurrent: userCurrent.Username, id: userCurrent.id }, 'clave_secreta', { expiresIn: '1h' });
