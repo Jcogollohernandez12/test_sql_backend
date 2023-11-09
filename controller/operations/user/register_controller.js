@@ -1,11 +1,9 @@
 import { createUserQuery, loginQuery } from '../../querys/user_query.js';
 
 export const createUser = async (req, res) => {
-    console.table(req.body);
     const { Username, password } = req.body;
     try {
         const results =  await loginQuery(Username, password);
-        console.log(results);
         if(results.length !== 0){  
           res.status(200).json({ message: 'Usuario existente', userCurrent: {} });
         }else{
