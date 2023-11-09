@@ -3,11 +3,11 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const db = createConnection({
-    host: 'monorail.proxy.rlwy.net',
-    user: 'root',
-    port:49241,
-    password: 'fh1daA2had25F1d3gcdEB5CeBbHB5gB-',
-    database: 'railway',
+    host: process.env.HOST_DB,
+    user: process.env.USER_DB,
+    port: parseInt(process.env.PORT_DB, 10),
+    password: process.env.PASSWORD_DB,
+    database: process.env.NAME_DB,
     waitForConnections: true,
     connectionLimit: 20,
     queueLimit: 0
